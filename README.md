@@ -47,8 +47,11 @@ Create a `.poeditor.yml` file in the root of your project:
 api_token: YOUR_API_TOKEN_HERE
 project_id: YOUR_PROJECT_ID
 
-# Xcode project path
+# Xcode project path (for standalone projects)
 project_path: YourProject.xcodeproj
+
+# Or use workspace path (for projects with CocoaPods, SPM, or multiple targets)
+# workspace_path: YourProject.xcworkspace
 
 # Upload configuration
 upload:
@@ -225,7 +228,8 @@ Check that:
 ### Localization files not found
 
 Make sure that:
-- `project_path` in `.poeditor.yml` points to the correct `.xcodeproj`
+- `project_path` or `workspace_path` in `.poeditor.yml` points to the correct `.xcodeproj` or `.xcworkspace`
+- If using a workspace with CocoaPods or SPM dependencies, use `workspace_path` instead of `project_path`
 - Localizations are created in the Xcode project
 - Languages exist in both Xcode and POEditor
 

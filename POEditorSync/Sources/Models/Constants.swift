@@ -13,8 +13,8 @@ enum Constants {
 
     /// POEditor API rate limit delay (in seconds)
     /// Used for uploads and operations that require API rate limiting
-    /// Note: POEditor rate limit is 1 upload per 20 seconds
-    static let apiRateLimitDelay: TimeInterval = 20.0
+    /// Note: POEditor rate limit is 1 upload per 30 seconds
+    static let apiRateLimitDelay: TimeInterval = 30.0
 
     // MARK: - File Paths & Names
 

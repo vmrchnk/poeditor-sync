@@ -1,18 +1,19 @@
 .PHONY: all clean build install
 
 BINARY_NAME = poeditor-sync
+SCRIPTS_ROOT = .
+BUILD_DIR = $(SCRIPTS_ROOT)/.build
 
 all: clean build install
 
 clean:
-	swift package clean
-	rm -rf .build
+	cd $(SCRIPTS_ROOT) && swift package clean
 	rm -f bin/$(BINARY_NAME)
 
 build:
-	swift build -c release
+	cd $(SCRIPTS_ROOT) && swift build --product $(BINARY_NAME) -c release
 
 install:
 	mkdir -p bin
-	cp .build/release/$(BINARY_NAME) bin/
+	cp $(BUILD_DIR)/release/$(BINARY_NAME) bin/
 	chmod +x bin/$(BINARY_NAME)
